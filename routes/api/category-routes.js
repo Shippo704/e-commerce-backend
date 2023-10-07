@@ -27,7 +27,6 @@ router.get('/:id', async (req, res) => {
     // if category doesn't exist
     if (!category) {
       res.status(404).json({message: 'Category id does not exist'});
-      return;
     }
 
     // found category successfully

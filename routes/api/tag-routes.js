@@ -62,7 +62,6 @@ router.put('/:id', async (req, res) => {
     // if tag doesn't exist
     if (!updateTag) {
       res.status(404).json({message: 'Tag not found. Update tag failed'});
-      return;
     }
 
     // update tag successfully
@@ -84,7 +83,6 @@ router.delete('/:id', async (req, res) => {
     // if tag doesn't exist
     if (!deleteTag) {
       res.status(404).json({message: 'Tag not found. Delete tag failed'});
-      return;
     }
 
     // delete tag successfully

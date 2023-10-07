@@ -35,7 +35,6 @@ router.get('/:id', async (req, res) => {
     // if product doesn't exist
     if (!product) {
       res.status(404).json({message: 'Product not found'});
-      return;
     }
 
     // found product successfully
