@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
   // find all categories
   // be sure to include its associated Products
   try {
-    const categories = await Category.findAll({include: [{model: Product}]});
+    const categories = await Category.findAll({
+      include: [{model: Product}]});
     res.status(200).json(categories);
   }
   catch (error) {
@@ -20,7 +21,8 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const category = await Category.findByPk(req.params.id, {include: [{model: Product}]});
+    const category = await Category.findByPk(req.params.id, {
+      include: [{model: Product}]});
 
     // if category doesn't exist
     if (!category) {
@@ -53,7 +55,8 @@ router.put('/:id', async (req, res) => {
   try {
     // use request body to carry the update info
     // use params to find the correct category to update
-    const updatedCategory = await Category.update(req.body, {where: {id: req.params.id}});
+    const updatedCategory = await Category.update(req.body, {
+      where: {id: req.params.id}});
 
     // if category doesn't exist
     if (!updatedCategory[0]) {
@@ -72,7 +75,8 @@ router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
     // use params to find the category to delete
-    const deleteCategory = await Category.destroy({where: {id: req.params.id}});
+    const deleteCategory = await Category.destroy({
+      where: {id: req.params.id}});
 
     // if category doesn't exist
     if (!deleteCategory) {
